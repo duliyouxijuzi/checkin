@@ -34,8 +34,13 @@ const glados = async () => {
 }
 
 const notify = async (contents) => {
+  if (!contents) 
+    console.log("contents 不存在!")
+    return
   const token = process.env.NOTIFY
-  if (!token || !contents) console.log("token 或者 contents 不存在!"); return
+  if (!token) 
+    console.log("token 不存在!")
+    return
   await fetch(`https://www.pushplus.plus/send`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
@@ -51,6 +56,4 @@ const notify = async (contents) => {
 const main = async () => {
   await notify(await glados())
 }
-if (!process.env.TEST) 
-  console.log("process.env.TEST")
 main()
