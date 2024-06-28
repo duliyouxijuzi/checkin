@@ -49,5 +49,5 @@ const notify = async (contents) => {
 const main = async () => {
   await notify(await glados())
 }
-
+console.log("tttt")
 main()
