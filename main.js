@@ -1,6 +1,6 @@
 const glados = async () => {
   const cookie = process.env.GLADOS
-  if (!cookie) console.log("cookie 不存在!") return
+  if (!cookie) console.log("cookie 不存在!"); return
   try {
     const headers = {
       'cookie': cookie,
@@ -35,7 +35,7 @@ const glados = async () => {
 
 const notify = async (contents) => {
   const token = process.env.NOTIFY
-  if (!token || !contents) console.log("token 或者 contents 不存在!") return
+  if (!token || !contents) console.log("token 或者 contents 不存在!"); return
   await fetch(`https://www.pushplus.plus/send`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
