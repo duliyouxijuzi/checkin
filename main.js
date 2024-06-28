@@ -51,5 +51,6 @@ const notify = async (contents) => {
 const main = async () => {
   await notify(await glados())
 }
-console.log(process.env.TEST)
+if (!process.env.TEST) 
+  console.log("process.env.TEST")
 main()
