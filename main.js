@@ -1,6 +1,8 @@
 const glados = async () => {
   const cookie = process.env.GLADOS
-  if (!cookie) return
+  if (!cookie) 
+    console.log("cookie 不存在!")
+    return
   try {
     const headers = {
       'cookie': cookie,
@@ -16,12 +18,15 @@ const glados = async () => {
       method: 'GET',
       headers,
     }).then((r) => r.json())
+    console.log("message : %s", checkin.message)
+    console.log("status.data.leftDays : %d", status.data.leftDays)
     return [
       'Checkin OK',
       `${checkin.message}`,
       `Left Days ${Number(status.data.leftDays)}`,
     ]
   } catch (error) {
+    console.log("签到失败")
     return [
       'Checkin Error',
       `${error}`,
@@ -32,7 +37,9 @@ const glados = async () => {
 
 const notify = async (contents) => {
   const token = process.env.NOTIFY
-  if (!token || !contents) return
+  if (!token || !contents) 
+    console.log("token 或者 contents 不存在!")
+    return
   await fetch(`https://www.pushplus.plus/send`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
