@@ -2,5 +2,8 @@
   "type": "module",
   "scripts": {
     "main": "node main.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.14"
   }
 }

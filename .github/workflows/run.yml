@@ -15,7 +15,10 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
+      - run: npm install nodemailer --save
       - run: npm run main
         env:
           GLADOS: ${{ secrets.GLADOS }}
-          NOTIFY: ${{ secrets.NOTIFY }}
+          MAIL_SENDER: ${{ secrets.MAIL_SENDER }}
+          MAIL_RECEIVER: ${{ secrets.MAIL_RECEIVER }}
+          MAIL_KEY: ${{ secrets.MAIL_KEY }}
