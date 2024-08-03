@@ -1,16 +1,15 @@
 const glados = async () => {
   const cookie = process.env.GLADOS
-  if (!cookie) return
   try {
     const headers = {
       'cookie': cookie,
       'referer': 'https://glados.rocks/console/checkin',
-      'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
     }
     const checkin = await fetch('https://glados.rocks/api/user/checkin', {
       method: 'POST',
       headers: { ...headers, 'content-type': 'application/json' },
-      body: '{"token":"glados.network"}',
+      body: '{"token": "glados.one"}',
     }).then((r) => r.json())
     const status = await fetch('https://glados.rocks/api/user/status', {
       method: 'GET',
@@ -19,6 +18,7 @@ const glados = async () => {
     return [
       'Checkin OK',
       `${checkin.message}`,
+      `Checkin Get Points: ${Number(checkin.points)}`,
       `Left Days ${Number(status.data.leftDays)}`,
     ]
   } catch (error) {
