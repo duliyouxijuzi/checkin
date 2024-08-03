@@ -1,13 +1,4 @@
 import { createRequire } from 'module';
-const process = {
-  env: {
-    GLADOS: "__stripe_mid=d67f0fa6-b4ec-4abe-8c77-f5f9bb60baa80e2481; koa:sess=eyJ1c2VySWQiOjUxMjY3MCwiX2V4cGlyZSI6MTc0NTQ5NzkwNTgyNiwiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=gVe9pfmGBWVEU5uG3GcuwlkjwFY; _gid=GA1.2.1825050085.1722653747; _ga_CZFVKMNT9J=GS1.1.1722653746.3.1.1722653751.0.0.0; _ga=GA1.2.872513011.1698495172",
-    MAIL_SENDER: "1083849060@qq.com",
-    MAIL_RECEIVER: "17771435561@163.com",
-    MAIL_KEY: "ujwdmtjmtckhfgjb"
-  }
-};
-
 const glados = async () => {
   const cookie = process.env.GLADOS
   if (!cookie) return
